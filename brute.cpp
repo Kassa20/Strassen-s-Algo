@@ -60,7 +60,6 @@ int main()
     printf("\n------B-----\n");
     print(B);
 
-
     brute(A, B, C);
 
     printf("\n---------C-------\n");
