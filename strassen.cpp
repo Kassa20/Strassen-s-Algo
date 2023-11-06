@@ -1,23 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ROW_1 4
-#define COL_1 4
+// #define ROW_1 4
+// #define COL_1 4
 
-#define ROW_2 4
-#define COL_2 4
+// #define ROW_2 4
+// #define COL_2 4
 
 #define sz  4
 
 
 // print matrix
-void print(string display, vector<vector<int> > matrix,
-		int start_row, int start_column, int end_row,
-		int end_column)
+void print(string display, vector<vector<int> > matrix)
 {
 	cout << endl << display << " =>" << endl;
-	for (int i = start_row; i <= end_row; i++) {
-		for (int j = start_column; j <= end_column; j++) {
+	for (int i = 0; i < sz; i++) {
+		for (int j = 0; j < sz; j++) {
 			cout << setw(10);
 			cout << matrix[i][j];
 		}
@@ -190,15 +188,14 @@ int main()
     srand(21);
     fill(matrix_B);
 
-	print("Array A", matrix_A, 0, 0, ROW_1 - 1, COL_1 - 1);
+	print("Array A", matrix_A);
 
-	print("Array B", matrix_B, 0, 0, ROW_2 - 1, COL_2 - 1);
+	print("Array B", matrix_B);
 
 	vector<vector<int> > result_matrix(
 		multiply_matrix(matrix_A, matrix_B));
 
-	print("Result Array", result_matrix, 0, 0, ROW_1 - 1,
-		COL_2 - 1);
+	print("Result Array", result_matrix);
 }
 
 // Time Complexity: T(N) = 7T(N/2) + O(N^2) => O(N^Log7)
