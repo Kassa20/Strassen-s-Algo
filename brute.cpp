@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 2 
+#define N 4
 
 void fill(int array[][N])
 {
@@ -43,6 +43,7 @@ void print(int C[][N])
         printf("\n");
     }
 }
+
 
 int main()
 {
