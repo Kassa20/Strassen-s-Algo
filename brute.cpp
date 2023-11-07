@@ -4,8 +4,11 @@
 
 using namespace std;
 
-#define N 1024
+#define N 500
 
+int nextpowerof2(int k){
+    return pow(2, int(ceil(log2(k))));
+}
 void fill(vector<vector<int> >&vector)
 {
     int i, j;
@@ -20,8 +23,45 @@ void fill(vector<vector<int> >&vector)
 
 vector<vector<int>> brute(vector<vector<int> >&A, vector<vector<int> >&B)
 {
-    vector<vector<int>> res(N, vector<int>(N, 0));
+
+    int test = N & (N - 1);
     int i, j, k;
+    int sz;
+    if(test != 0)
+    {
+        cout << "padding..." << endl;
+        sz = nextpowerof2(N);
+
+        vector<vector<int>> res(sz, vector<int>(sz, 0));
+        vector<vector<int>> newA(sz, vector<int>(sz, 0));
+        vector<vector<int>> newB(sz, vector<int>(sz, 0));
+
+        for(i = 0; i < N; i++)
+        {
+            for(j = 0; j < N; j++)
+            {
+                newA[i][j] = A[i][j];
+                newB[i][j] = B[i][j];
+            }
+        }
+
+        for(i = 0; i < N; i++)
+        {
+            for(j = 0; j < N; j++)
+            {
+                for(k = 0; k < N; k++)
+                {
+                    res[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        return res;
+    }
+
+
+    vector<vector<int>> res(N, vector<int>(N, 0));
+
     for(i = 0; i < N; i++)
     {
         for(j = 0; j < N; j++)
