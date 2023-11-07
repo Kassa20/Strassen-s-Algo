@@ -82,4 +82,8 @@ int main()
 
 
     return 0;
+    printf("\n---------C-------\n");
+    print(C);
+
+    return 0;
 }   
