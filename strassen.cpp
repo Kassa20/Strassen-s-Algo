@@ -2,7 +2,7 @@
 using namespace std;
 
 
-#define sz 256
+#define sz 128
 
 
 // print matrix
@@ -161,7 +161,6 @@ void fill(vector<vector<int> > &matrix)
     int i, j, x;
     for(i = 0; i < sz; i++)
     {
-        vector<int> tmp;
         for(j = 0; j < sz; j++)
         {
             x = rand() % 10 + 1;
@@ -195,7 +194,7 @@ int main()
 
     auto end = chrono::high_resolution_clock::now();
 
-    // Calculate the duration in microseconds
+    // Calculate the duration
      auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
     std::cout << "Execution time: " << duration.count() << " milliseconds" << std::endl;
