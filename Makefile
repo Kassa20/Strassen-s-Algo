@@ -1,9 +1,15 @@
 CC=g++
 
 brute: brute.cpp
-	$(CC) -g3 -o $@ $<
+	$(CC) -g -o $@ $<
 
-all: brute
+strassen: strassen.cpp
+	$(CC) -g -o $@ $<
 
-run: brute
+all: brute strassen
+
+run_brute: brute
 	./brute
+
+run_strassen: strassen
+	./strassen
