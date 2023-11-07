@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#define N 256
+#define N 1024
 
 void fill(int array[][N])
 {
