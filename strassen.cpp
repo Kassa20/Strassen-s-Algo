@@ -1,13 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// #define ROW_1 4
-// #define COL_1 4
 
-// #define ROW_2 4
-// #define COL_2 4
-
-#define sz  4
+#define sz 256
 
 
 // print matrix
@@ -178,6 +173,7 @@ void fill(vector<vector<int> > &matrix)
 
 int main()
 {
+    auto start = chrono::high_resolution_clock::now();
 
     vector<vector<int> > matrix_A(sz, vector<int>(sz));
     vector<vector<int> > matrix_B(sz, vector<int>(sz));  
@@ -188,15 +184,27 @@ int main()
     srand(21);
     fill(matrix_B);
 
-	print("Array A", matrix_A);
+	// print("Array A", matrix_A);
 
-	print("Array B", matrix_B);
+	// print("Array B", matrix_B);
 
 	vector<vector<int> > result_matrix(
 		multiply_matrix(matrix_A, matrix_B));
 
-	print("Result Array", result_matrix);
+	//print("Result Array", result_matrix);
+
+    auto end = chrono::high_resolution_clock::now();
+
+    // Calculate the duration in microseconds
+     auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    std::cout << "Execution time: " << duration.count() << " milliseconds" << std::endl;
 }
+
+
+
+
+
 
 // Time Complexity: T(N) = 7T(N/2) + O(N^2) => O(N^Log7)
 // which is approximately O(N^2.8074) Code Contributed By:

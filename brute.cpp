@@ -1,7 +1,10 @@
 #include <bits/stdc++.h>
+#include <chrono>
+
+
 using namespace std;
 
-#define N 4
+#define N 256
 
 void fill(int array[][N])
 {
@@ -31,22 +34,27 @@ void brute(int A[][N], int B[][N], int C[][N])
     }
 }
 
-void print(int C[][N])
+void print(string display, int C[][N])
 {
     int i, j;
+    cout << endl << display << " =>" << endl;
     for(i = 0; i < N; i++)
     {
         for(j = 0; j < N; j++)
         {
-            printf("%2d ", C[i][j]);
+           	cout << setw(5);
+            cout << C[i][j];
         }
-        printf("\n");
+        cout << endl;
     }
 }
 
 
 int main()
 {
+
+   auto start = chrono::high_resolution_clock::now();
+
     int A[N][N];
     int B[N][N];
     int C[N][N];
@@ -55,16 +63,22 @@ int main()
     srand(21);
     fill(B);
 
-    printf("-------A------\n");
-    print(A);
+    //print("Array A", A);
 
-    printf("\n------B-----\n");
-    print(B);
-
+    // print("Array B", B);
 
     brute(A, B, C);
 
-    printf("\n---------C-------\n");
-    print(C);
+    //print("Result Array", C);
+
+
+    // // Calculate the duration in microseconds
+    auto end = chrono::high_resolution_clock::now();
+
+    // Calculate the duration in microseconds
+     auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    std::cout << "Execution time: " << duration.count() << " milliseconds" << std::endl;
+
 
 }   
