@@ -2,7 +2,7 @@
 using namespace std;
 
 
-#define sz 128
+#define sz 512
 
 
 // print matrix
@@ -19,7 +19,6 @@ void print(string display, vector<vector<int> > matrix)
 	cout << endl;
 	return;
 }
-
 
 // add matrix 
 vector<vector<int> >
@@ -155,9 +154,10 @@ multiply_matrix(vector<vector<int> > matrix_A,
 	return result_matrix;
 }
 
-// fill matrix with random values, pass by reference
+//fill matrix with random values, pass by reference
 void fill(vector<vector<int> > &matrix)
 {
+    
     int i, j, x;
     for(i = 0; i < sz; i++)
     {
@@ -170,6 +170,8 @@ void fill(vector<vector<int> > &matrix)
 }
 
 
+
+
 int main()
 {
     auto start = chrono::high_resolution_clock::now();
@@ -177,27 +179,26 @@ int main()
     vector<vector<int> > matrix_A(sz, vector<int>(sz));
     vector<vector<int> > matrix_B(sz, vector<int>(sz));  
 
+
+
     srand(27);
     fill(matrix_A);
 
     srand(21);
     fill(matrix_B);
 
-	// print("Array A", matrix_A);
-
-	// print("Array B", matrix_B);
 
 	vector<vector<int> > result_matrix(
 		multiply_matrix(matrix_A, matrix_B));
 
-	//print("Result Array", result_matrix);
 
     auto end = chrono::high_resolution_clock::now();
 
     // Calculate the duration
-     auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    auto duration = chrono::duration_cast<std::chrono::seconds>(end - start);
 
-    std::cout << "Execution time: " << duration.count() << " milliseconds" << std::endl;
+    std::cout << "strassen execution time: " << duration.count() << " seconds" << std::endl;
+
 }
 
 

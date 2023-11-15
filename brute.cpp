@@ -4,11 +4,13 @@
 
 using namespace std;
 
-#define N 500
+#define N 2048
+
 
 int nextpowerof2(int k){
     return pow(2, int(ceil(log2(k))));
 }
+
 void fill(vector<vector<int> >&vector)
 {
     int i, j;
@@ -106,22 +108,16 @@ int main()
     srand(21);
     fill(B);
 
-    //print("Array A", A);
-
-    // print("Array B", B);
 
     C = brute(A, B);
-
-    //print("Result Array", C);
-
 
     // // Calculate the duration in microseconds
     auto end = chrono::high_resolution_clock::now();
 
     // Calculate the duration in microseconds
-    auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    auto duration = chrono::duration_cast<std::chrono::minutes>(end - start);
 
-    std::cout << "Execution time: " << duration.count() << " milliseconds" << std::endl;
+    std::cout << "Execution time: " << duration.count() << " minutes" << std::endl;
 
     return 0;
 }   
